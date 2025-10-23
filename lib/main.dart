@@ -52,9 +52,7 @@ class _LoginPageState extends State<LoginPage> {
     if (_formKey.currentState?.validate() ?? false) {
       Navigator.of(context).pushReplacementNamed('/menu');
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Terjadi error: Periksa input')),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Terjadi error: Periksa input')));
     }
   }
 
@@ -141,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                   TextFormField(
                     controller: _passCtrl,
                     obscureText: _obscurePassword,
-                    onChanged: (_) => setState(() {}),
+                    onChanged: (_) => setState((){}),
                     decoration: InputDecoration(
                       hintText: 'Min. 8 characters',
                       contentPadding: const EdgeInsets.symmetric(
@@ -152,15 +150,8 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       suffixIcon: IconButton(
-                        icon: Icon(
-                          _obscurePassword
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                          color: Colors.black26,
-                        ),
-                        onPressed: () => setState(
-                          () => _obscurePassword = !_obscurePassword,
-                        ),
+                        icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility, color: Colors.black26),
+                        onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
                       ),
                     ),
                     validator: (v) => (v == null || v.length < 8)
@@ -217,15 +208,8 @@ class _LoginPageState extends State<LoginPage> {
                   // Tombol Daftar -> navigasi ke RegisterPage
                   Center(
                     child: TextButton(
-                      onPressed: () =>
-                          Navigator.of(context).pushNamed('/daftar'),
-                      child: const Text(
-                        'Daftar',
-                        style: TextStyle(
-                          color: Color(0xFF5165A5),
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+                      onPressed: () => Navigator.of(context).pushNamed('/daftar'),
+                      child: const Text('Daftar', style: TextStyle(color: Color(0xFF5165A5), fontWeight: FontWeight.w600)),
                     ),
                   ),
                 ],
@@ -264,15 +248,11 @@ class _RegisterPageState extends State<RegisterPage> {
 
   void _register() {
     if (!(_formKey.currentState?.validate() ?? false)) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Terjadi error: Periksa input')),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Terjadi error: Periksa input')));
       return;
     }
     if (_passCtrl.text != _confirmCtrl.text) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Password dan konfirmasi tidak sama')),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Password dan konfirmasi tidak sama')));
       return;
     }
     // berhasil (demo)
@@ -297,16 +277,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: _emailCtrl,
                   decoration: InputDecoration(
                     hintText: 'email',
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 14,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                   ),
-                  validator: (v) =>
-                      (v == null || v.isEmpty) ? 'Email wajib diisi' : null,
+                  validator: (v) => (v == null || v.isEmpty) ? 'Email wajib diisi' : null,
                 ),
 
                 const SizedBox(height: 16),
@@ -318,60 +292,33 @@ class _RegisterPageState extends State<RegisterPage> {
                   obscureText: _obscurePass,
                   decoration: InputDecoration(
                     hintText: 'Password',
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 14,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                     suffixIcon: IconButton(
-                      icon: Icon(
-                        _obscurePass ? Icons.visibility_off : Icons.visibility,
-                        color: Colors.black26,
-                      ),
-                      onPressed: () =>
-                          setState(() => _obscurePass = !_obscurePass),
+                      icon: Icon(_obscurePass ? Icons.visibility_off : Icons.visibility, color: Colors.black26),
+                      onPressed: () => setState(() => _obscurePass = !_obscurePass),
                     ),
                   ),
-                  validator: (v) => (v == null || v.length < 8)
-                      ? 'Password minimal 8 karakter'
-                      : null,
+                  validator: (v) => (v == null || v.length < 8) ? 'Password minimal 8 karakter' : null,
                 ),
 
                 const SizedBox(height: 16),
 
-                const Text(
-                  'Konfirmasi Password',
-                  style: TextStyle(fontSize: 12),
-                ),
+                const Text('Konfirmasi Password', style: TextStyle(fontSize: 12)),
                 const SizedBox(height: 8),
                 TextFormField(
                   controller: _confirmCtrl,
                   obscureText: _obscureConfirm,
                   decoration: InputDecoration(
                     hintText: 'Konfirmasi Password',
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 14,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                     suffixIcon: IconButton(
-                      icon: Icon(
-                        _obscureConfirm
-                            ? Icons.visibility_off
-                            : Icons.visibility,
-                        color: Colors.black26,
-                      ),
-                      onPressed: () =>
-                          setState(() => _obscureConfirm = !_obscureConfirm),
+                      icon: Icon(_obscureConfirm ? Icons.visibility_off : Icons.visibility, color: Colors.black26),
+                      onPressed: () => setState(() => _obscureConfirm = !_obscureConfirm),
                     ),
                   ),
-                  validator: (v) => (v == null || v.length < 8)
-                      ? 'Konfirmasi minimal 8 karakter'
-                      : null,
+                  validator: (v) => (v == null || v.length < 8) ? 'Konfirmasi minimal 8 karakter' : null,
                 ),
 
                 const SizedBox(height: 24),
@@ -381,28 +328,13 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: 48,
                   child: ElevatedButton(
                     onPressed: _register,
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
+                    style: ElevatedButton.styleFrom(padding: EdgeInsets.zero, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
                     child: Ink(
                       decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFF5165A5), Color(0xFF6E8BE0)],
-                        ),
+                        gradient: const LinearGradient(colors: [Color(0xFF5165A5), Color(0xFF6E8BE0)]),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: const Center(
-                        child: Text(
-                          'Daftar',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
+                      child: const Center(child: Text('Daftar', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600))),
                     ),
                   ),
                 ),
@@ -425,7 +357,7 @@ class MenuPage extends StatefulWidget {
 
 class _MenuPageState extends State<MenuPage> {
   final Map<String, int> _quantities = {};
-
+  
   static final List<Map<String, dynamic>> items = [
     {
       "kode_produk": "PRD-001",
@@ -433,7 +365,7 @@ class _MenuPageState extends State<MenuPage> {
       "harga": 15000,
       "stok": 5,
       "rating": 4.8,
-      "gambar": "gambar/001.jpg",
+      "gambar": "gambar/001.jpg"
     },
     {
       "kode_produk": "PRD-002",
@@ -441,7 +373,7 @@ class _MenuPageState extends State<MenuPage> {
       "harga": 20000,
       "stok": 6,
       "rating": 4.7,
-      "gambar": "gambar/002.jpg",
+      "gambar": "gambar/002.jpg"
     },
     {
       "kode_produk": "PRD-003",
@@ -449,7 +381,7 @@ class _MenuPageState extends State<MenuPage> {
       "harga": 21000,
       "stok": 5,
       "rating": 4.8,
-      "gambar": "gambar/003.jpg",
+      "gambar": "gambar/003.jpg"
     },
     {
       "kode_produk": "PRD-004",
@@ -457,8 +389,8 @@ class _MenuPageState extends State<MenuPage> {
       "harga": 13000,
       "stok": 5,
       "rating": 4.4,
-      "gambar": "gambar/004.jpg",
-    },
+      "gambar": "gambar/004.jpg"
+    }
   ];
 
   int _getQuantity(String kode) => _quantities[kode] ?? 0;
@@ -538,7 +470,7 @@ class _MenuPageState extends State<MenuPage> {
                     fit: BoxFit.cover,
                   ),
                   const SizedBox(width: 12),
-
+                  
                   // Info produk
                   Expanded(
                     child: Column(
@@ -554,15 +486,13 @@ class _MenuPageState extends State<MenuPage> {
                         const SizedBox(height: 4),
                         Text(
                           'Rp ${item['harga']} • Stok: ${item['stok']}',
-                          style: TextStyle(color: Colors.grey[600]),
+                          style: TextStyle(
+                            color: Colors.grey[600],
+                          ),
                         ),
                         Row(
                           children: [
-                            const Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                              size: 18,
-                            ),
+                            const Icon(Icons.star, color: Colors.amber, size: 18),
                             Text(item['rating'].toString()),
                           ],
                         ),
@@ -610,3 +540,4 @@ class _MenuPageState extends State<MenuPage> {
     );
   }
 }
+
