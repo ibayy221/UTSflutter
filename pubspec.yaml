@@ -61,10 +61,21 @@ flutter:
   assets:
     # Include the entire `gambar/` directory. This will bundle every file
     # under `gambar/` so you don't need to list each asset individually.
-    - gambar/
+    - gambar/001.jpg
+    - gambar/002.jpg
+    - gambar/003.jpg
+    - gambar/004.jpg
+    - gambar/administrator 1.png
+    - gambar/calendar-range.png
+    - gambar/cashier 1.png
+    - gambar/Delete.png
+    - gambar/Edit.png
+    - gambar/Gudang.png
+    - gambar/Logo.png
+    - gambar/Tambah1.png
 
-    # Logo toko
-    - assets/images/logo.png
+
+    # Logo toko (removed - using `gambar/` folder instead)
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
