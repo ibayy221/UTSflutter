@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Header: logo left, stacked text right, centered horizontally
                   Center(
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -56,7 +55,7 @@ class MyApp extends StatelessWidget {
 
                   SizedBox(height: 32),
 
-                  // Sign In title and subtitle
+                
                   Text(
                     'Sign In',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -69,7 +68,7 @@ class MyApp extends StatelessWidget {
 
                   SizedBox(height: 24),
 
-                  // Email field (visual placeholder)
+                  
                   Text('Email', style: TextStyle(fontSize: 12)),
                   SizedBox(height: 8),
                   Container(
@@ -91,7 +90,7 @@ class MyApp extends StatelessWidget {
 
                   SizedBox(height: 16),
 
-                  // Password field (visual placeholder)
+                 
                   Text('Password*', style: TextStyle(fontSize: 12)),
                   SizedBox(height: 8),
                   Container(
