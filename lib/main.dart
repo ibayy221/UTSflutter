@@ -11,12 +11,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blueGrey,
-        appBar: AppBar(
-          title: Text('bsonestore', style: TextStyle(color: Colors.white)),
-          backgroundColor: Colors.blueGrey[900],
+        body: Center(
+          child: Image.asset('gambar/Logo.png', width: 150),
         ),
-        body: Center(child: Image(image: AssetImage('gambar/logo.png'))),
       ),
     );
   }
