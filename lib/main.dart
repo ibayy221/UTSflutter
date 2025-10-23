@@ -52,7 +52,9 @@ class _LoginPageState extends State<LoginPage> {
     if (_formKey.currentState?.validate() ?? false) {
       Navigator.of(context).pushReplacementNamed('/menu');
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Terjadi error: Periksa input')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Terjadi error: Periksa input')),
+      );
     }
   }
 
@@ -139,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                   TextFormField(
                     controller: _passCtrl,
                     obscureText: _obscurePassword,
-                    onChanged: (_) => setState((){}),
+                    onChanged: (_) => setState(() {}),
                     decoration: InputDecoration(
                       hintText: 'Min. 8 characters',
                       contentPadding: const EdgeInsets.symmetric(
@@ -150,8 +152,15 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       suffixIcon: IconButton(
-                        icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility, color: Colors.black26),
-                        onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
+                        icon: Icon(
+                          _obscurePassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: Colors.black26,
+                        ),
+                        onPressed: () => setState(
+                          () => _obscurePassword = !_obscurePassword,
+                        ),
                       ),
                     ),
                     validator: (v) => (v == null || v.length < 8)
@@ -208,8 +217,15 @@ class _LoginPageState extends State<LoginPage> {
                   // Tombol Daftar -> navigasi ke RegisterPage
                   Center(
                     child: TextButton(
-                      onPressed: () => Navigator.of(context).pushNamed('/daftar'),
-                      child: const Text('Daftar', style: TextStyle(color: Color(0xFF5165A5), fontWeight: FontWeight.w600)),
+                      onPressed: () =>
+                          Navigator.of(context).pushNamed('/daftar'),
+                      child: const Text(
+                        'Daftar',
+                        style: TextStyle(
+                          color: Color(0xFF5165A5),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -248,11 +264,15 @@ class _RegisterPageState extends State<RegisterPage> {
 
   void _register() {
     if (!(_formKey.currentState?.validate() ?? false)) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Terjadi error: Periksa input')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Terjadi error: Periksa input')),
+      );
       return;
     }
     if (_passCtrl.text != _confirmCtrl.text) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Password dan konfirmasi tidak sama')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Password dan konfirmasi tidak sama')),
+      );
       return;
     }
     // berhasil (demo)
@@ -277,10 +297,16 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: _emailCtrl,
                   decoration: InputDecoration(
                     hintText: 'email',
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 14,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
-                  validator: (v) => (v == null || v.isEmpty) ? 'Email wajib diisi' : null,
+                  validator: (v) =>
+                      (v == null || v.isEmpty) ? 'Email wajib diisi' : null,
                 ),
 
                 const SizedBox(height: 16),
@@ -292,33 +318,60 @@ class _RegisterPageState extends State<RegisterPage> {
                   obscureText: _obscurePass,
                   decoration: InputDecoration(
                     hintText: 'Password',
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 14,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                     suffixIcon: IconButton(
-                      icon: Icon(_obscurePass ? Icons.visibility_off : Icons.visibility, color: Colors.black26),
-                      onPressed: () => setState(() => _obscurePass = !_obscurePass),
+                      icon: Icon(
+                        _obscurePass ? Icons.visibility_off : Icons.visibility,
+                        color: Colors.black26,
+                      ),
+                      onPressed: () =>
+                          setState(() => _obscurePass = !_obscurePass),
                     ),
                   ),
-                  validator: (v) => (v == null || v.length < 8) ? 'Password minimal 8 karakter' : null,
+                  validator: (v) => (v == null || v.length < 8)
+                      ? 'Password minimal 8 karakter'
+                      : null,
                 ),
 
                 const SizedBox(height: 16),
 
-                const Text('Konfirmasi Password', style: TextStyle(fontSize: 12)),
+                const Text(
+                  'Konfirmasi Password',
+                  style: TextStyle(fontSize: 12),
+                ),
                 const SizedBox(height: 8),
                 TextFormField(
                   controller: _confirmCtrl,
                   obscureText: _obscureConfirm,
                   decoration: InputDecoration(
                     hintText: 'Konfirmasi Password',
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 14,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                     suffixIcon: IconButton(
-                      icon: Icon(_obscureConfirm ? Icons.visibility_off : Icons.visibility, color: Colors.black26),
-                      onPressed: () => setState(() => _obscureConfirm = !_obscureConfirm),
+                      icon: Icon(
+                        _obscureConfirm
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        color: Colors.black26,
+                      ),
+                      onPressed: () =>
+                          setState(() => _obscureConfirm = !_obscureConfirm),
                     ),
                   ),
-                  validator: (v) => (v == null || v.length < 8) ? 'Konfirmasi minimal 8 karakter' : null,
+                  validator: (v) => (v == null || v.length < 8)
+                      ? 'Konfirmasi minimal 8 karakter'
+                      : null,
                 ),
 
                 const SizedBox(height: 24),
@@ -328,13 +381,28 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: 48,
                   child: ElevatedButton(
                     onPressed: _register,
-                    style: ElevatedButton.styleFrom(padding: EdgeInsets.zero, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
-                    child: Ink(
-                      decoration: BoxDecoration(
-                        gradient: const LinearGradient(colors: [Color(0xFF5165A5), Color(0xFF6E8BE0)]),
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: const Center(child: Text('Daftar', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600))),
+                    ),
+                    child: Ink(
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: [Color(0xFF5165A5), Color(0xFF6E8BE0)],
+                        ),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'Daftar',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -348,8 +416,15 @@ class _RegisterPageState extends State<RegisterPage> {
 }
 
 // Halaman Menu Activity
-class MenuPage extends StatelessWidget {
+class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
+
+  @override
+  State<MenuPage> createState() => _MenuPageState();
+}
+
+class _MenuPageState extends State<MenuPage> {
+  final Map<String, int> _quantities = {};
 
   static final List<Map<String, dynamic>> items = [
     {
@@ -358,7 +433,7 @@ class MenuPage extends StatelessWidget {
       "harga": 15000,
       "stok": 5,
       "rating": 4.8,
-      "gambar": "gambar/001.jpg"
+      "gambar": "gambar/001.jpg",
     },
     {
       "kode_produk": "PRD-002",
@@ -366,7 +441,7 @@ class MenuPage extends StatelessWidget {
       "harga": 20000,
       "stok": 6,
       "rating": 4.7,
-      "gambar": "gambar/002.jpg"
+      "gambar": "gambar/002.jpg",
     },
     {
       "kode_produk": "PRD-003",
@@ -374,7 +449,7 @@ class MenuPage extends StatelessWidget {
       "harga": 21000,
       "stok": 5,
       "rating": 4.8,
-      "gambar": "gambar/003.jpg"
+      "gambar": "gambar/003.jpg",
     },
     {
       "kode_produk": "PRD-004",
@@ -382,30 +457,150 @@ class MenuPage extends StatelessWidget {
       "harga": 13000,
       "stok": 5,
       "rating": 4.4,
-      "gambar": "gambar/004.jpg"
-    }
+      "gambar": "gambar/004.jpg",
+    },
   ];
+
+  int _getQuantity(String kode) => _quantities[kode] ?? 0;
+
+  void _incrementQuantity(String kode, int stok) {
+    if (_getQuantity(kode) < stok) {
+      setState(() {
+        _quantities[kode] = _getQuantity(kode) + 1;
+      });
+    }
+  }
+
+  void _decrementQuantity(String kode) {
+    if (_getQuantity(kode) > 0) {
+      setState(() {
+        _quantities[kode] = _getQuantity(kode) - 1;
+      });
+    }
+  }
+
+  double get _totalBelanja {
+    double total = 0;
+    _quantities.forEach((kode, qty) {
+      final item = items.firstWhere((item) => item['kode_produk'] == kode);
+      total += (item['harga'] as int) * qty;
+    });
+    return total;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Menu Activity')),
+      appBar: AppBar(
+        title: const Text('Menu Activity'),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(50),
+          child: Container(
+            padding: const EdgeInsets.all(8),
+            color: Colors.white,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  'Total Belanja: Rp ${_totalBelanja.toStringAsFixed(0)}',
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF5165A5),
+                  ),
+                ),
+                const SizedBox(width: 16),
+              ],
+            ),
+          ),
+        ),
+      ),
       body: ListView.builder(
         padding: const EdgeInsets.all(12),
         itemCount: items.length,
         itemBuilder: (context, index) {
           final item = items[index];
+          final kode = item['kode_produk'] as String;
+          final stok = item['stok'] as int;
+          final quantity = _getQuantity(kode);
+
           return Card(
             margin: const EdgeInsets.symmetric(vertical: 8),
-            child: ListTile(
-              leading: Image.asset(item['gambar'], width: 56, height: 56, fit: BoxFit.cover),
-              title: Text(item['deskripsi']),
-              subtitle: Text('Rp ${item['harga']} • Stok: ${item['stok']}'),
-              trailing: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
                 children: [
-                  Icon(Icons.star, color: Colors.amber, size: 18),
-                  Text(item['rating'].toString()),
+                  // Gambar produk
+                  Image.asset(
+                    item['gambar'],
+                    width: 80,
+                    height: 80,
+                    fit: BoxFit.cover,
+                  ),
+                  const SizedBox(width: 12),
+
+                  // Info produk
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          item['deskripsi'],
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'Rp ${item['harga']} • Stok: ${item['stok']}',
+                          style: TextStyle(color: Colors.grey[600]),
+                        ),
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                              size: 18,
+                            ),
+                            Text(item['rating'].toString()),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // Kontrol quantity
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        onPressed: quantity > 0
+                            ? () => _decrementQuantity(kode)
+                            : null,
+                        icon: const Icon(Icons.remove_circle_outline),
+                        color: const Color(0xFF5165A5),
+                      ),
+                      Container(
+                        width: 40,
+                        alignment: Alignment.center,
+                        child: Text(
+                          quantity.toString(),
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: quantity < stok
+                            ? () => _incrementQuantity(kode, stok)
+                            : null,
+                        icon: const Icon(Icons.add_circle_outline),
+                        color: const Color(0xFF5165A5),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -415,4 +610,3 @@ class MenuPage extends StatelessWidget {
     );
   }
 }
-
