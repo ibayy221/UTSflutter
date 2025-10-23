@@ -11,9 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Image.asset('gambar/Logo.png', width: 150),
-        ),
+        body: Center(child: Image.asset('gambar/Logo.png', width: 150)),
       ),
     );
   }
