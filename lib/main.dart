@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.blueGrey,
         appBar: AppBar(
-          title: Text('I Am Rich'),
+          title: Text('bsonestore', style: TextStyle(color: Colors.white)),
           backgroundColor: Colors.blueGrey[900],
         ),
-        body: Center(child: Image(image: AssetImage('images/diamond.png'))),
+        body: Center(child: Image(image: AssetImage('gambar/logo.png'))),
       ),
     );
   }
